@@ -1,17 +1,17 @@
-import Title from './components/Title';
 import React from 'react';
-import './App.less';
+import Title from './components/Title';
 import UploadForm from './components/UploadForm';
+import './App.less';
 
 
 const App = () => {
 
 
   return (
-    <React.Fragment>
+    <div className="App">
       <Title />
       <UploadForm />
-    </React.Fragment>
+    </div>
   )
 }
 
