@@ -8,14 +8,14 @@ const useStorage = (file) => {
     useEffect(() => {
 
         const storageRef = storage.ref(file.name)
-        const collectionRef = db.collection('images')
-
+        const collectionRef = db.collection("images")
+        console.log(progress)
 
         storageRef.put(file).on(
             "state_changed",
             (snap) => {
-                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
-                setProgress(percentage)
+                let percenttage = (snap.bytesTransferred / snap.totalBytes) * 100
+                setProgress(percenttage)
             },
             (err) => {
                 setError(err)
