@@ -7,9 +7,11 @@ const useFirestore = (collection) => {
         const unsub = db.collection(collection)
             .orderBy('createdAt', 'desc')
             .onSnapshot((snapshots) => {
-                setDocs(snapshots.docs.map(doc => (
-                    { ...doc.data(), id: doc.id }
-                )))
+                setDocs(snapshots.docs.map(doc => {
+                    return (
+                        { ...doc.data(), id: doc.id }
+                    )
+                }))
             })
         return () => unsub()
     }, [collection])
