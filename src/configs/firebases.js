@@ -1,6 +1,8 @@
-import firebase from 'firebase'
+import * as firebase from 'firebase'
+import "firebase/storage"
+import "firebase/firebase"
 
-var firebaseApp = firebase.initializeApp({
+var firebaseConfig = {
     apiKey: process.env.REACT_APP_APIKEY,
     authDomain: process.env.REACT_APP_AUTHDOMAIN,
     databaseURL: process.env.REACT_APP_DATABASEURL,
@@ -10,11 +12,12 @@ var firebaseApp = firebase.initializeApp({
     appId: process.env.REACT_APP_APPID,
     measurementId: process.env.REACT_APP_MEASUREMENTID,
 
-});
+}
+firebase.initializeApp(firebaseConfig)
 
-const db = firebaseApp.firestore();
-const storage = firebaseApp.storage();
-const auth = firebaseApp.auth()
+const db = firebase.firestore();
+const storage = firebase.storage()
+// const auth = firebaseApp.auth()
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export { db, storage, timestamp, auth };
+export { db, storage, timestamp, };
